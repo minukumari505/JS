@@ -65,5 +65,27 @@ const course = {
 }
 //course.courseInstructor
 
-const {courseInstructor} = course
+ const {courseInstructor} = course
 console.log(courseInstructor);
+const {courseInstructor:Instructor} = course
+console.log(Instructor);
+
+
+// const navbar = ({company}) => {
+
+// }                                 **** Destructure of react
+// navbar(company = "hitesh")
+
+
+// {
+//     "name": "hitesh",
+//     "coursename": "js in hindi",         //JSON => keys and value both are string here
+//     "price": "free"
+// }
+
+[
+    {},
+    {},              //JSON format
+    {},
+]
+
