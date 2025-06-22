@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'//URL of GitHub API for the user hiteshchoudhary
+    const xhr = new XMLHttpRequest();//Creates an XMLHttpRequest object, which is used to interact with servers (AJAX-style).
+    xhr.open('GET', requestUrl)//Prepares the request to use the HTTP GET method on the specified URL.
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)//this.responseText gives the raw JSON string.JSON.parse(...) converts it into a JavaScript object.
+            console.log(typeof data);
+            console.log(data.followers);
+        }
+    }//onreadystatechange is triggered every time the readyState changes.
+//console.log(xhr.readyState) logs the current state (from 0 to 4).
+    xhr.send();//Sends the request to the server.
+</script>
+</html>
