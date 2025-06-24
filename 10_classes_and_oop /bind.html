@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:300"
+
+            //requirement
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick.bind(this))
+
+        }
+        handleClick(){
+            console.log("button clicked");
+            console.log(this.server);
+        }
+    }
+
+    const app = new React()
+</script>
+</html>
+
+
+<!-- 
+When you create an object from the class (new React()), this constructor runs.
+this.library and this.server are properties attached to the object being created.
+
+document.querySelector('button'): selects the <button> element.
+.addEventListener('click', ...): attaches a click handler.
+this.handleClick.bind(this):
+By default, this inside handleClick would be undefined (or refer to the button) if called as a callback.
+.bind(this) ensures that this still refers to the instance of the class (the object created by new React()).
+ -->
